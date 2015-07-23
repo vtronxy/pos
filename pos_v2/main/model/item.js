@@ -8,3 +8,13 @@ function Item(barcode, name, unit, price) {
 Item.all = function() {
   return loadAllItems();
 };
+
+Item.find = function(barcode) {
+  var allItems = this.all();
+
+  for (var i = 0; i < allItems.length; i++) {
+    if (allItems[i].barcode === barcode) {
+      return allItems[i];
+    }
+  }
+};
